@@ -1,258 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Name - Portfolio</title>
-<style>
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f60909, #562bb2);
+            /* Subtle light gradient */
+        }
 
+        header {
+            background: linear-gradient(to right, #002d2da7, #0e1d39);
+            /* Vibrant red gradient */
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            /* Add this */
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        .header-content h1 {
+            font-size: 2.5rem;
+        }
 
+        /* Add styles for the round profile picture */
+        .profile-picture {
+            width: 170px;
+            /* Adjust the size as needed */
+            height: 170px;
+            border-radius: 120%;
+            /* Create a circular shape */
+            object-fit: cover;
+            /* To ensure the image fills the circular area */
+            position: absolute;
+            /* Add this */
+            top: 10px;
+            /* Adjust top position as needed */
+            left: 75px;
+            /* Adjust left position as needed */
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    line-height: 1.6;
-}
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
 
-h1, h2, h3 {
-    font-weight: 600;
-}
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
 
-.landing {
-    background: url('https://wallpaperaccess.com/full/5651990.jpg') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white(246, 253, 254);
-}
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
 
-.landing .content {
-    max-width: 700px;
-    padding: 20px;
-}
+        .section-content {
+            background-color: #fff;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
 
-.landing h1 {
-    font-size: 3.5rem;
-}
+        .download-button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            align-self: center;
+        }
 
-.landing p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
+        .download-button:hover {
+            background-color: #555;
+        }
 
-.landing .cta-btn {
-    text-decoration: none;
-    background-color: #FF5C8D;
-    padding: 12px 30px;
-    border-radius: 30px;
-    color: white;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #333;
+            color: #fff;
+        }
 
-.landing .cta-btn:hover {
-    background-color: #FF3B6F;
-}
-
-/* About Section */
-.about {
-    padding: 60px 20px;
-   
-}
-
-.about .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto 40px;
-}
-
-.about ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.about li {
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-/* Contact Section */
-.contact {
-    background-color: #FF5C8D;
-    padding: 50px 20px;
-    color: white;
-}
-
-.contact .container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.contact form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact input, .contact textarea {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-.contact button {
-    background-color: #fff;
-    color: #FF5C8D;
-    padding: 12px 20px;
-    font-weight: 600;
-    border: none;
-    border-radius: 30px;
-    transition: background-color 0.3s ease;
-}
-
-.contact button:hover {
-    background-color: #f8f8f8;
-}
-
-/* Footer */
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.footer p {
-    margin-bottom: 10px;
-}
-
-.footer .social-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.footer .social-links li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.footer .social-links li a:hover {
-    color: #FF5C8D;
-}
-</style>
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
 </head>
-<body>
-    <!-- Landing Section -->
-    <header class="landing">
-        <div class="content">
-            <a href="#about" class="cta-btn">My Portfolio</a>
 
+<body>
+    <header>
+        <div class="header-content">
+            <!-- Add your profile picture here -->
+            <img src="D:\Coursera Certifcate\NM Portfolio\WhatsApp Image 2025-04-04 at 09.41.27_84969003.jpg"
+                alt="Your Profile Picture" class="profile-picture">
+            <h1>Sri Ganesh Kumar M</h1>
+            <p>Information Technology</p>
         </div>
     </header>
 
-    
-    <section id="about" class="about">
-        <div class="container">
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="section-content">
             <h2>About Me</h2>
-            <img src="">
-            <p>
-            Hello! I'm  Vaishal Binu web developer with a love for creating elegant and functional websites,
-            I have completed my schooling at CMS Matric Hr Sec School
-            And I'm doing my college in KG College Of Arts And Science.
-            </p>
-            <h3>Skills</h3>
-           
+            <p>I am a dedicated student with good communication skills and a love for teamwork since I believe I
+                gain new and important skills through working with others. With top-notch team management and leadership
+                skills,
+                I excel in leading projects to success.
+                I have also engaged in hackathons and AR/VR competitions, which have sharpened my problem-solving and
+                creative thinking skills.</p>
+
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-content">
+            <h2>Education</h2>
+            <p>B.Sc Information Technology - KG College of Arts and Science</p>
+
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-content">
+            <h2>Skills</h2>
             <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>React, Node.js</li>
-                <li>UI/UX Design</li>
-                <li>C,C++,Java</li>
-                <li>Version Control (Git, GitHub)</li>
-            </ul>
-            <h3>Certifications</h3>
-            <ul>
-                <li>
-                     <a href="https://www.coursera.org/account/accomplishments/certificate/QGA3KJOT4SWA"> HTML and CSS:Building a single page website</a>
-                    </li>
-                <li>
-                       <a href="https://www.coursera.org/account/accomplishments/certificate/7UIKUO6OHQJ3">Getting Started with Linux Terminal</a>
-                    </li>
-                <li>
-                     <a href="https://www.coursera.org/account/accomplishments/certificate/PB7ZJ1T3FYF8">  Data Structures: python For Beginners</a>
-                    </li>
-                <li>
-                  <a href="https://www.coursera.org/account/accomplishments/certificate/1LTNM1B48KR1"> Getting started with Java</a>
-                    </li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C Programming</li>
+                <li>C++</li>
+                <li>Java script</li>
+                <li>Full Stack</li>
+
             </ul>
         </div>
     </section>
 
-    
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form action="#" method="POST">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+    <section id="projects">
+        <div class="section-content">
+            <h2>Projects</h2>
+            <ul>
+                <li>Car Accident Detection Project</a></li>
+                <li>AR/VR</a></li>
+                <li></a>Smart India Hackathon</li>
+                <li> Deep Racer Project</li>
+                <li>AWS</li>
+
+                <!-- Add more project links here -->
+            </ul>
         </div>
     </section>
 
-  
-    <footer class="footer">
-        <div class="container">
-            <p>Find me on</p>
-            <ul class="social-links">
-                <li>Email:vaishal27141@gmail.com</li>
-                <li><a href="https://in.linkedin.com/in/vaishal-b-923643302">Linkedin</a></li>
-                <li><a href="https://github.com/vaishalmickey">GitHub</a></li>
-       
-            </ul>
-          
+    <section id="resume">
+
+        <div class="section-content">
+            <center>
+                <h2>Resume</h2>
+                <a href="D:\Coursera Certifcate\NM Portfolio\Gani's Resume.pdf" target="_blank"
+                    class="download-button">Download CV</a>
+            </center>
         </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Isaac R</p>
     </footer>
 
-  
+    <script>
+        // Smooth scrolling to section when clicking on navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
